@@ -1,4 +1,35 @@
-# Test Data:
+# Testing
+
+Here are examples of how to manually test endpoints of the application using `curl` commands.
+
+### 1. Calculate Price Endpoint
+
+Send a POST request to the `/calculate-price` endpoint:
+
+```bash
+curl -X POST http://127.0.0.1:8000/calculate-price \
+     -H 'Content-Type: application/json' \
+     -d '{
+           "product": 1,
+           "taxNumber": "DE123456789",
+           "couponCode": "D15"
+         }'
+```
+### 2. Purchase Endpoint
+
+Send a POST request to the `/purchase` endpoint:
+```bash
+curl -X POST http://127.0.0.1:8000/purchase \
+     -H 'Content-Type: application/json' \
+     -d '{
+           "product": 1,
+           "taxNumber": "IT12345678900",
+           "couponCode": "D15",
+           "paymentProcessor": "paypal"
+         }'
+```
+
+## Test Data:
 ```
 INSERT INTO product (name, price) VALUES
 ('iPhone', 100),
